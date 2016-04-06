@@ -51,11 +51,13 @@ public class PerformanceLogAspect {
 		case WARN:
 			logger.warn("--------------------------------------------------------------------------------------");
 			break;
+		case ERROR:
+			logger.error("--------------------------------------------------------------------------------------");
+			break;
 		default:
 			logger.debug("--------------------------------------------------------------------------------------");
 			break;
 		}
-    	
     }
 
 	@Around("performanceMethod()")
@@ -91,16 +93,19 @@ public class PerformanceLogAspect {
             
             switch (perfLog.severity()) {
             case DEBUG:
-    			logger.debug(String.format("%s took %d ", joinpoint.getSignature().toShortString(), (end - start)));
+    			logger.debug(String.format("%s took %d " + perfLog.timeStyle().toString(), joinpoint.getSignature().toShortString(), (end - start)));
     			break;
     		case INFO:
-    			logger.info(String.format("%s took %d ", joinpoint.getSignature().toShortString(), (end - start)));
+    			logger.info(String.format("%s took %d " + perfLog.timeStyle().toString(), joinpoint.getSignature().toShortString(), (end - start)));
     			break;
     		case WARN:
-    			logger.warn(String.format("%s took %d ", joinpoint.getSignature().toShortString(), (end - start)));
+    			logger.warn(String.format("%s took %d " + perfLog.timeStyle().toString(), joinpoint.getSignature().toShortString(), (end - start)));
+    			break;
+    		case ERROR:
+    			logger.error(String.format("%s took %d " + perfLog.timeStyle().toString(), joinpoint.getSignature().toShortString(), (end - start)));
     			break;
     		default:
-    			logger.debug(String.format("%s took %d ", joinpoint.getSignature().toShortString(), (end - start)));
+    			logger.debug(String.format("%s took %d " + perfLog.timeStyle().toString(), joinpoint.getSignature().toShortString(), (end - start)));
     			break;
     		}
             return result;
@@ -111,7 +116,7 @@ public class PerformanceLogAspect {
    
     @After("performanceMethod()")
     public void after(JoinPoint joinpoint ) {
-    	logger.info("--------------------------------------------------------------------------------------");
+    	before(joinpoint);
     } 
     
     private PerfLog retrievePerfLogAnnotation(JoinPoint joinpoint) {

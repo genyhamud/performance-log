@@ -23,16 +23,30 @@ import java.lang.annotation.Target;
 @Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface PerfLog {
-	
+
 	public enum Severity {
-	   INFO, WARN, DEBUG
+		INFO, WARN, DEBUG, ERROR
 	}
-	
+
 	public enum TimeStyle {
-		NANO_SECONDS, MILI_SECONDS, SECONDS
+		NANO_SECONDS {
+			public String toString() {
+				return "ns";
+			}
+		},
+		MILI_SECONDS {
+			public String toString() {
+				return "ms";
+			}
+		},
+		SECONDS {
+			public String toString() {
+				return "s";
+			}
+		}
 	}
-	
+
 	Severity severity() default Severity.DEBUG;
 	TimeStyle timeStyle() default TimeStyle.MILI_SECONDS; 
-	
+
 }
