@@ -89,6 +89,9 @@
 					<mavenExecutorId>forked-path</mavenExecutorId>
 					<useReleaseProfile>false</useReleaseProfile>
 					<arguments>-Psonatype-oss-release</arguments>
+					<checkModificationExcludes>
+			            <checkModificationExclude>pom.xml</checkModificationExclude>
+			        </checkModificationExcludes>
 				</configuration>
 			</plugin>
 			<plugin>
