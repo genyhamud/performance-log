@@ -30,6 +30,11 @@ import org.slf4j.LoggerFactory;
 
 import com.genyherrera.performancelog.annotations.PerfLog;
 
+/**
+ * This is the Aspect class
+ * @author genyherrera
+ *
+ */
 @Aspect
 public class PerformanceLogAspect {
 
