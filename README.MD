@@ -4,6 +4,7 @@
 
 [![Apache License](http://img.shields.io/badge/license-ASL-blue.svg)](https://github.com/genyherrera/performance-log/blob/master/LICENSE)
 [![Build Status](https://travis-ci.org/genyherrera/performance-log.svg)](https://travis-ci.org/genyherrera/performance-log)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.genyherrera.performancelog/performance-log/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.genyherrera.performancelog/performance-log)
 
 ## What is Performance Log? ##
 Performance Log is a Java Annotation API that tells you how log it takes to run a method. 
@@ -11,6 +12,23 @@ Performance Log is a Java Annotation API that tells you how log it takes to run 
 You can configure the severity that you will like to print and the time response.
 
 The annotation is called PerfLog and you just need to annotate your method and automatically the PerfLog will do the magic.
+
+## Download ##
+
+Download [the latest JAR](https://search.maven.org/remote_content?g=com.genyherrera.performancelog&a=performance-log&v=LATEST) or grab via Maven:
+```xml
+<dependency>
+  <groupId>com.genyherrera.performancelog</groupId>
+  <artifactId>performance-log</artifactId>
+  <version>1.1</version>
+</dependency>
+```
+or Gradle:
+```groovy
+compile 'com.genyherrera.performancelog:performance-log:1.1'
+```
+
+Snapshots of the development version are available in [Sonatype's Snapshots Repository](https://oss.sonatype.org/content/repositories/snapshots/com/genyherrera/performancelog/performance-log/).
 
 ## Usage Example ##
 
