@@ -19,7 +19,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.genyherrera.performancelog</groupId>
   <artifactId>performance-log</artifactId>
-  <version>1.1</version>
+  <version>1.2-SNAPSHOT</version>
   <name>Performance Log</name>
   <description>Annotation API for measuring performance (How log it takes for run)</description>
   <url>http://github.com/genyherrera/performance-log</url>
