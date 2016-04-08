@@ -9,9 +9,11 @@
 ## What is Performance Log? ##
 Performance Log is a Java Annotation API that tells you how log it takes to run a method. 
 
-You can configure the severity that you will like to print and the time response.
+You can configure the severity (INFO, WARN, DEBUG, ERROR) that you will like to print and the time response (NANO_SECONDS, MILI_SECONDS, SECONDS). 
 
-The annotation is called PerfLog and you just need to annotate your method and automatically the PerfLog will do the magic.
+The annotation is called PerfLog and you just need to annotate your method, and automatically the PerfLog will do the magic.
+
+This API use [Spring AOP](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/aop.html) and [AspectJ](http://projects.eclipse.org/projects/tools.aspectj) to intercept the methods and print the result.
 
 ## Download ##
 
@@ -26,6 +28,49 @@ Download [the latest JAR](https://search.maven.org/remote_content?g=com.genyherr
 or Gradle:
 ```groovy
 compile 'com.genyherrera.performancelog:performance-log:1.1'
+```
+
+You need to add the AspectJ capability to your project and configure the AspectJ library with `Performance Log` artifact. 
+To do this is very simple, just copy the plugin declaration inside your pom.xml and it's done.
+
+```
+<plugin>
+	<groupId>org.codehaus.mojo</groupId>
+	<artifactId>aspectj-maven-plugin</artifactId>
+	<version>1.7</version>
+	<dependencies>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>1.8.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjtools</artifactId>
+			<version>1.8.1</version>
+		</dependency>
+	</dependencies>
+	<executions>
+		<execution>
+			<goals>
+				<goal>compile</goal>
+				<goal>test-compile</goal>
+			</goals>
+		</execution>
+	</executions>
+	<configuration>
+		<outxml>true</outxml>
+		<aspectLibraries>
+			<aspectLibrary>
+				<groupId>com.genyherrera.performancelog</groupId>
+				<artifactId>performance-log</artifactId>
+			</aspectLibrary>
+		</aspectLibraries>
+		<complianceLevel>${java.version}</complianceLevel>
+		<source>${java.version}</source>
+		<target>${java.version}</target>
+	</configuration>
+</plugin>		
 ```
 
 Snapshots of the development version are available in [Sonatype's Snapshots Repository](https://oss.sonatype.org/content/repositories/snapshots/com/genyherrera/performancelog/performance-log/).
