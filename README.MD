@@ -3,8 +3,8 @@
 :chart_with_downwards_trend: Annotation API for measuring performance (How log it takes for run).
 
 [![Apache License](http://img.shields.io/badge/license-ASL-blue.svg)](https://github.com/genyherrera/performance-log/blob/master/LICENSE)
-[![Build Status](https://travis-ci.org/genyherrera/performance-log.svg)](https://travis-ci.org/genyherrera/performance-log)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.genyherrera.performancelog/performance-log/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.genyherrera.performancelog/performance-log)
+[![TravisCI Status](https://travis-ci.org/genyherrera/performance-log.svg)](https://travis-ci.org/genyherrera/performance-log)
 [![CircleCI Status](https://circleci.com/gh/genyherrera/performance-log.svg?style=shield&circle-token=22baeec6d499afffb2179112c7122575dce84522)](https://circleci.com/gh/genyherrera/performance-log)
 
 ## What is Performance Log? ##
